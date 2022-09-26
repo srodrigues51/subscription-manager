@@ -8,7 +8,7 @@ function Initialpage() {
       <nav className='nav-container'>
         <div className='nav-wrapper blue'>
           <a id="brand-logo" href=" " className='brand-logo center'> Subscription Manager</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
               <Link to="/about">Sobre</Link>
             </li>
@@ -17,13 +17,18 @@ function Initialpage() {
         </div>
       </nav>
       <div className='container'>
-        <br>
-        </br>
+        <br></br>
+        <br></br>
+        <br></br>
         <div clasName='row center' >
           <h5 className='header col s12 light'>Cansado de não ter onde assistir seus filmes e séries favoritas? Cadastre-se agora !</h5>
         </div>
-        <div className='row center'>
-          <Link to="/register" className="waves-effect waves-light btn">Cadastrar Gratuitamente</Link>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <div className='container center'>
+          <Link to="/register" className="waves-effect waves-light btn-large">Cadastrar Gratuitamente</Link>
         </div>
         <br>
         </br>

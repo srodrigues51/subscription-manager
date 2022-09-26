@@ -8,6 +8,9 @@ import Payments from './pages/Payments';
 import Subscription from './pages/Subscriptions';
 import Users from './pages/User_control';
 import Profile from './pages/Profile';
+import Amazon from './pages/Services/amazon';
+import Spotify from './pages/Services/spotify';
+import Netflix from './pages/Services/netflix';
 
 
 function AppRoutes() {
@@ -15,14 +18,18 @@ function AppRoutes() {
         <Router>
             <Routes>
                 <Route exact path='/' element={<Initial />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/register' element={<Register />} />
-                <Route path='/home' element={<Home />} />
-                <Route path='/subscripition' element={<Subscription />} />
-                <Route path='/payments' element={<Payments />} />
-                <Route path='/users' element={<Users />} />
-                <Route path='/profile' element={<Profile />} />
+                <Route exact path='/login' element={<Login />} />
+                <Route exact path='/about' element={<About />} />
+                <Route exact path='/register' element={<Register />} />
+                <Route exact path='/home' element={<Home />} />
+                <Route exact path='/subscripition' element={<Subscription />} />
+                <Route exact path='/payments' element={<Payments />} />
+                <Route exact path='/users' element={<Users />} />
+                <Route exact path='/profile' element={<Profile />} />
+                <Route path='/netflix' element={<Netflix />} />
+                <Route exact path='/spotify' element={<Spotify />} />
+                <Route exact path='/amazon' element={<Amazon />} />
+                
             </Routes>
         </Router>
     )

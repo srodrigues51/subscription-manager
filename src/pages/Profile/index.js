@@ -22,15 +22,15 @@ function Profile() {
         </nav>
       </div>
       <Sidebar />
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Card Title</span>
+      <div className="row">
+        <div className="col s12 m6">
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+              <span className="card-title">Card Title</span>
               <p>I am a very simple card. I am good at containing small bits of information.
                 I am convenient because I require little markup to use effectively.</p>
             </div>
-            <div class="card-action">
+            <div className="card-action">
               <Link to='/'>Visualizr I</Link>
               <Link to='/'>This is a link</Link>
             </div>

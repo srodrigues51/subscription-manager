@@ -5,7 +5,7 @@ function Sidebar() {
 
     return (
         <div className='container'>
-            <ul id="nav-mobile" className="left hide-on-med-and-down">
+            <ul id="nav-mobile" className="left hide-on-med-and-down ">
                 <ul id="slide-out" className='sidenav blue lighten-5' >
                     <li className="divider" tabindex="-1"></li>
                     <li><Link to="/subscripition">Assinaturas</Link></li>
