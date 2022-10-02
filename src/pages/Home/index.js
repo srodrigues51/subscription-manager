@@ -23,7 +23,7 @@ function Home() {
                   Por apenas R$ 9,90
                 </p>
             </div>
-            <li className="divider ligth-black" tabindex="0"></li>
+            <li className="divider ligth-black" tabIndex="0"></li>
             <div className="card-action">
               <a href="#!" className=' white-text'>Assinar</a>
             </div>
@@ -36,7 +36,7 @@ function Home() {
                   Por apenas R$ 9,90
                 </p>
             </div>
-            <li className="divider ligth-black" tabindex="0"></li>
+            <li className="divider ligth-black" tabIndex="0"></li>
             <div className="card-action">
               <a href="#!" className=' white-text'>Assinar</a>
             </div>
@@ -49,7 +49,7 @@ function Home() {
                   Por apenas R$ 9,90
                 </p>
             </div>
-            <li className="divider ligth-black" tabindex="0"></li>
+            <li className="divider ligth-black" tabIndex="0"></li>
             <div className="card-action">
               <a href="#!" className=' white-text'>Assinar</a>
             </div>

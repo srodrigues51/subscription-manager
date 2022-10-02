@@ -13,14 +13,14 @@ const GetSUB = () => {
             headers: myHeaders,
             redirect: 'follow',
         };
-        fetch("http://localhost:8080/item", requestOptions)
+        fetch("http://localhost:8080/user", requestOptions)
             .then((response) => response.text())
             .then((data) => {
                 setData(data)
                 console.log(data)
             })
             .catch((error) => console.log(error))
-    }, []);
+    },[]);
 
     return (
         <div className="container">

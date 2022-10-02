@@ -2,12 +2,23 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [myEmail, setEmail] = useState('');
+  const [myPassword, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
-    console.log("Submit", { email, password })
+    console.log("Submit", { myEmail, myPassword })
+    fetch('http://localhost:8080/auth/login', {
+      method: 'GET',
+      body: JSON.stringify({
+        email: myEmail,
+        password: myPassword,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    });
   }
   return (
     <div className='nav-bar-fixed'>
@@ -21,19 +32,19 @@ function Login() {
             <li><Link to="/login">Entrar</Link></li>
           </ul>
           <ul id="nav-mobile" className="left hide-on-med-and-down">
-              <li><Link to="/">Voltar</Link> </li>
+            <li><Link to="/">Voltar</Link> </li>
           </ul>
         </div>
       </nav>
       <div class="container">
         <p>Faca seu login</p>
-        <form onSubmit={handleSubmit}>
+        <form>
           <label>Informe seu e-mail</label>
-          <input type="text" id="lemail" name="lemail" value={email} onCahnce={(e) => setEmail(e.target.value)} />
+          <input type="email" id="lemail" name="lemail" value={myEmail} onChange={(e) => setEmail(e.target.value)} />
           <label>Informe sua senha</label>
-          <input type="text" id="lpassword" name="lpassword" value={password} onCahnce={(e) => setPassword(e.target.value)} />
+          <input type="password" id="lpassword" name="lpassword" value={myPassword} onChange={(e) => setPassword(e.target.value)} />
         </form>
-        <button className="waves-effect waves-light btn"> Login </button>
+        <button className="waves-effect waves-light btn" onClick={handleClick}> Login </button>
       </div>
     </div>
 
