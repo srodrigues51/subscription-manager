@@ -8,6 +8,7 @@ function Register() {
   const [lName, setlName] = useState('');
   const [myEmail, setEmail] = useState('');
   const [myPassword, setPassword] = useState('');
+  const [confirmPassword, setCPassword] = useState('');
 
   const handleClick = async () => {
     console.log("Submit", { fName, lName, myEmail, myPassword })
@@ -52,7 +53,7 @@ function Register() {
           <label>Agora seu sobrenome</label>
           <input type="text" id="rlname" name="rlname" value={lName} onChange={(e) => setlName(e.target.value)}></input>
           <label>Crie uma senha</label>
-          <input type="password" id="password" name="password"></input>
+          <input type="password" id="password" name="password" value={confirmPassword} onChange={(e) => setCPassword(e.target.value)}></input>
           <label>Confirme sua senha</label>
           <input type="password" id="cpassword" name="cpassword" value={myPassword} onChange={(e) => setPassword(e.target.value)}></input>
         </form>
