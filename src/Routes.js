@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Initial from './pages/Initial_page';
 import Register from './pages/Register_page';
@@ -8,9 +8,8 @@ import Payments from './pages/Payments';
 import Subscription from './pages/Subscriptions';
 import Users from './pages/User_control';
 import Profile from './pages/Profile';
-import Amazon from './pages/Services/amazon';
-import Spotify from './pages/Services/spotify';
-import Netflix from './pages/Services/netflix';
+import Notifications from './pages/Notifications'
+
 
 
 function AppRoutes() {
@@ -26,9 +25,7 @@ function AppRoutes() {
                 <Route exact path='/payments' element={<Payments />} />
                 <Route exact path='/users' element={<Users />} />
                 <Route exact path='/profile' element={<Profile />} />
-                <Route path='/netflix' element={<Netflix />} />
-                <Route exact path='/spotify' element={<Spotify />} />
-                <Route exact path='/amazon' element={<Amazon />} />
+                <Route exact path='/notification' element={<Notifications />} />
                 
             </Routes>
         </Router>

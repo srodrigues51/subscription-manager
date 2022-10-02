@@ -1,39 +1,60 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Sidebar from '../../components/sidebar';
+import Navbar from '../../components/navbar';
 
 function Profile() {
   return (
     <>
-      <div className='nav-bar-fixed blue'>
-        <nav>
-          <div className='nav-wrapper blue'>
-            <a id="brand-logo" href=" " className='brand-logo center '> Subscription Manager</a>
-            <a href="#!" className='sidenav-trigger show-on-large' data-target='slide-out'><i className='medium material-icons white-text'>menu</i></a>
-            <ul id="navbar-items" className="right hide-on-med-and-down">
-              <li><a href='#!' className='dropdown-trigger' data-target='dropdown1'><i className="large material-icons ">account_circle</i></a></li>
-              <ul id='dropdown1' className='dropdown-content container'>
-                <li><Link to='/profile'>Perfil</Link></li>
-                <li className="divider" tabindex="-1"></li>
-                <li><Link to='/'>Sair</Link></li>
-              </ul>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <Navbar />
       <Sidebar />
-      <div className="row">
-        <div className="col s12 m6">
-          <div className="card blue-grey darken-1">
-            <div className="card-content white-text">
-              <span className="card-title">Card Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div className="card-action">
-              <Link to='/'>Visualizr I</Link>
-              <Link to='/'>This is a link</Link>
-            </div>
+      <br></br>
+      <br></br>
+      <div className='container row'>
+        <h3 className="title">PERFIL  </h3>
+      </div>
+      <div></div>
+      <div className="container row">
+        <div className='container center'>
+          <button data-target="new_service" className="btn-large modal-trigger ">ALTERAR DADOS DO PERFIL</button>
+        </div>
+        <div id="new_service" className="modal modal-fixed-footer center">
+          <div className="modal-content">
+            <h4>ALTERE SEUS DADOS</h4>
+            <br></br>
+            <form className="row col s12" >
+              <div className="row">
+                <div className="input-field col s6">
+                  <i className="material-icons prefix">account_circle</i>
+                  <input id="first_name" name="first_name" type="text"  />
+                  <label htmlFor="first_name" >Nome: </label>
+                </div>
+                <div className="input-field col s6">
+                  <i className="material-icons prefix">account_circle</i>
+                  <input id="midle_name" name="midle_name" type="text"  />
+                  <label htmlFor="midle_name" >Sobrenome </label>
+                </div>
+              </div>
+              <div className="row">
+                <div className="input-field col s6">
+                  <i className="material-icons prefix">email</i>
+                  <input id="email" type="email" name="email" />
+                  <label htmlFor="email">Email: </label>
+                </div>
+                <div className="input-field col s6">
+                  <i className="material-icons prefix">enhanced_encryption</i>
+                  <input id="passwords" name="password" type="password"  />
+                  <label htmlFor="passwords">Senha: </label>
+                </div>
+              </div>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <div className='modal-fixed-footer center'>
+                <button className="modal-close btn waves-effect waves-flat">Voltar</button>
+                <button className="btn waves-effect waves-flat" type="submit" >Alterar Dados</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

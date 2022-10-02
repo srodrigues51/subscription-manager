@@ -1,31 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Sidebar from '../../components/sidebar';
-
+import Navbar from '../../components/navbar';
 function User_control() {
   return (
     <>
-      <div className='nav-bar-fixed blue'>
-        <nav>
-          <div className='nav-wrapper blue'>
-            <a id="brand-logo" href=" " className='brand-logo center '> Subscription Manager</a>
-            <a href="#!" className='sidenav-trigger show-on-large' data-target='slide-out'><i className='medium material-icons white-text'>menu</i></a>
-            <ul id="navbar-items" className="right hide-on-med-and-down">
-              <li><a href='#!' className='dropdown-trigger' data-target='dropdown1'><i className="large material-icons ">account_circle</i></a></li>
-              <ul id='dropdown1' className='dropdown-content container'>
-                <li><Link to='/profile'>Perfil</Link></li>
-                <li className="divider" tabindex="-1"></li>
-                <li><Link to='/'>Sair</Link></li>
-              </ul>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <Navbar/>
       <Sidebar />
       <br></br>
       <br></br>
       <div className='container row'>
-        <h3 className="title"> Página de Membros</h3>
+        <h3 className="title">CONTROLE DE USUÁRIOS</h3>
       </div>
       <div className="container row">
         <div className="col s12">
