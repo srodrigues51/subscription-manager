@@ -7,7 +7,7 @@ function Login() {
 
   const handleClick = async () => {
     console.log("Submit", {myEmail, myPassword })
-    fetch('http://localhost:8080/auth/login', {
+    fetch('http://localhost:8080/auth/login', { 
       method: 'POST',
       body: JSON.stringify({
         email: myEmail,
