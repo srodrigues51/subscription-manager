@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import M from "materialize-css";
 import Routes from "./Routes"
+import { AuthProvider } from './contexts/authContext';
 
 
 function App() {
@@ -9,8 +10,9 @@ function App() {
     M.AutoInit();
   }, [])
   return (
-    <Routes />
-    
+    <AuthProvider>
+      <Routes />
+    </AuthProvider>
   );
 }
 

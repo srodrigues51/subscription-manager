@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from '../../components/sidebar';
+import { AuthContext } from '../../contexts/authContext';
 
 
 function Home() {
+
+  const { token, setToken } = useContext(AuthContext);
+
+  console.log('jwtToken', token);
 
   return (
     <>
@@ -16,7 +21,7 @@ function Home() {
               <li><a href='#!' className='dropdown-trigger' data-target='dropdown1'><i className="large material-icons ">account_circle</i></a></li>
               <ul id='dropdown1' className='dropdown-content container'>
                 <li><Link to='/profile'>Perfil</Link></li>
-                <li className="divider" tabindex="-1"></li>
+                <li className="divider" tabIndex="-1"></li>
                 <li><Link to='/'>Sair</Link></li>
               </ul>
             </ul>
@@ -37,7 +42,7 @@ function Home() {
                   Por apenas R$ 9,90
                 </p>
             </div>
-            <li className="divider ligth-black" tabindex="0"></li>
+            <li className="divider ligth-black" tabIndex="0"></li>
             <div className="card-action">
               <a href="#!" className=' white-text'>Assinar</a>
             </div>
@@ -50,7 +55,7 @@ function Home() {
                   Por apenas R$ 9,90
                 </p>
             </div>
-            <li className="divider ligth-black" tabindex="0"></li>
+            <li className="divider ligth-black" tabIndex="0"></li>
             <div className="card-action">
               <a href="#!" className=' white-text'>Assinar</a>
             </div>
@@ -63,7 +68,7 @@ function Home() {
                   Por apenas R$ 9,90
                 </p>
             </div>
-            <li className="divider ligth-black" tabindex="0"></li>
+            <li className="divider ligth-black" tabIndex="0"></li>
             <div className="card-action">
               <a href="#!" className=' white-text'>Assinar</a>
             </div>
