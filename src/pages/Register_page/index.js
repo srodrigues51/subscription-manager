@@ -1,8 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 
 function Register() {
+  const [fName, setfName] = useState('');
+  const [lName, setlName] = useState('');
+  const [myEmail, setEmail] = useState('');
+  const [myPassword, setPassword] = useState('');
+
+  const handleClick = async () => {
+    console.log("Submit", { fName, lName, myEmail, myPassword })
+    fetch('http://localhost:8080/auth/register', {
+      method: 'POST',
+      body: JSON.stringify({
+        firstName: fName,
+        lastName: lName,
+        email: myEmail,
+        password: myPassword,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    });
+  }
+
+
   return (
     <div className='nav-bar-fixed'>
       <nav className='nav-container'>
@@ -22,17 +46,17 @@ function Register() {
       <div className="container">
         <form>
           <label>Seu e-mail</label>
-          <input type="text" id="remail" name="remail"></input>
+          <input type="text" id="remail" name="remail" value={myEmail} onChange={(e) => setEmail(e.target.value)}></input>
           <label>Informe seu nome</label>
-          <input type="text" id="rfname" name="rfname"></input>
+          <input type="text" id="rfname" name="rfname" value={fName} onChange={(e) => setfName(e.target.value)}></input>
           <label>Agora seu sobrenome</label>
-          <input type="text" id="rlname" name="rlname"></input>
+          <input type="text" id="rlname" name="rlname" value={lName} onChange={(e) => setlName(e.target.value)}></input>
           <label>Crie uma senha</label>
-          <input type="text" id="password" name="password"></input>
+          <input type="password" id="password" name="password"></input>
           <label>Confirme sua senha</label>
-          <input type="text" id="cpassword" name="cpassword"></input>
+          <input type="password" id="cpassword" name="cpassword" value={myPassword} onChange={(e) => setPassword(e.target.value)}></input>
         </form>
-        <button type="submit" className="waves-effect waves-light btn"> Cadastrar </button>
+        <button type="submit" className="waves-effect waves-light btn" onClick={handleClick}><Link to="/login">Cadastrar</Link></button>
       </div>
     </div>
 

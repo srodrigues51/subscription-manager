@@ -2,13 +2,24 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [myEmail, setEmail] = useState('');
+  const [myPassword, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submit", { email, password })
+  const handleClick = async () => {
+    console.log("Submit", {myEmail, myPassword })
+    fetch('http://localhost:8080/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: myEmail,
+        password: myPassword,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    });
   }
+
   return (
     <div className='nav-bar-fixed'>
       <nav className='nav-container'>
@@ -27,13 +38,13 @@ function Login() {
       </nav>
       <div class="container">
         <p>Faca seu login</p>
-        <form onSubmit={handleSubmit}>
+        <form>
           <label>Informe seu e-mail</label>
-          <input type="text" id="lemail" name="lemail" value={email} onCahnce={(e) => setEmail(e.target.value)} />
+          <input type="text" id="lemail" name="lemail" value={myEmail} onChange={(e) => setEmail(e.target.value)} />
           <label>Informe sua senha</label>
-          <input type="text" id="lpassword" name="lpassword" value={password} onCahnce={(e) => setPassword(e.target.value)} />
+          <input type="password" id="lpassword" name="lpassword" value={myPassword} onChange={(e) => setPassword(e.target.value)} />
         </form>
-        <button className="waves-effect waves-light btn"> Login </button>
+        <button className="waves-effect waves-light btn" onClick={handleClick}> Login </button>
       </div>
     </div>
 
