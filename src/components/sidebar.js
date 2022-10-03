@@ -10,8 +10,6 @@ function Sidebar() {
                     <li className="divider" tabindex="-1"></li>
                     <li><Link to="/subscripition">Assinaturas</Link></li>
                     <li className="divider" tabindex="-1"></li>
-                    <li><Link to="/users">Usuários</Link></li>
-                    <li className="divider" tabindex="-1"></li>
                     <li><Link to="/payments">Pagamentos</Link></li>
                     <li className="divider" tabindex="-1"></li>
                     <li><Link to="/notification">Notificações</Link></li>

@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
 
+  /*const logout = asyn =>{
+    setToken(null)
+    Navigate('/login');
+  }*/
     return (
         <div className='nav-bar-fixed blue autoclose'>
         <nav>
@@ -14,7 +18,7 @@ function Navbar() {
               <ul id='dropdown1' className='dropdown-content container'>
                 <li><Link to='/profile'>Perfil</Link></li>
                 <li className="divider" tabindex="-1"></li>
-                <li><Link to='/'>Sair</Link></li>
+                <li><button>Sair</button></li>
               </ul>
             </ul>
           </div>

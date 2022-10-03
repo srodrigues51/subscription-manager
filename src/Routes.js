@@ -6,7 +6,6 @@ import About from './pages/About';
 import Home from './pages/Home'
 import Payments from './pages/Payments';
 import Subscription from './pages/Subscriptions';
-import Users from './pages/User_control';
 import Profile from './pages/Profile';
 import Notifications from './pages/Notifications';
 
@@ -25,10 +24,8 @@ function AppRoutes() {
                 <Route exact path='/home' element={<Home />} />
                 <Route exact path='/subscripition' element={<Subscription />} />
                 <Route exact path='/payments' element={<Payments />} />
-                <Route exact path='/users' element={<Users />} />
-                <Route exact path='/profile' element={<Profile />} />
                 <Route exact path='/notification' element={<Notifications />} />
-
+                <Route exact path='/profile' element={<Profile />} />
             </Routes>
         </Router>
     )

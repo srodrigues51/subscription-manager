@@ -7,7 +7,7 @@ function Initialpage() {
     <div className='nav-bar-fixed'>
       <nav className='nav-container'>
         <div className='nav-wrapper blue'>
-          <a id="brand-logo" href=" " className='brand-logo center'> Subscription Manager</a>
+          <a id="brand-logo" href="/" className='brand-logo center'> Subscription Manager</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
               <Link to="/about">Sobre</Link>
