@@ -69,8 +69,8 @@ const NewSubscription = () => {
                     <div className="input-field col s6">
                         <select id="periodicity" name="periodicity" value={periodicity} onChange={(e) => setPeriodicity(e.target.value)}>
                             <option value="" disabled></option>
-                            <option value="1">Mensal</option>
-                            <option value="2">Anual</option>
+                            <option value="MONTHLY">Mensal</option>
+                            <option value="YEARLY">Anual</option>
                         </select>
                         <label htmlFor="periodicity">Plano:</label>
                     </div>
