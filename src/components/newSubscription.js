@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
 import M from "materialize-css";
 import { AuthContext } from "../contexts/authContext";
-import { useNavigate } from "react-router-dom";
 
 const NewSubscription = () => {
 
@@ -15,7 +14,6 @@ const NewSubscription = () => {
     const [credentialType, setCredentialType] = useState('');
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
 
     const handleSUB = async (event) => {
         event.preventDefault();
