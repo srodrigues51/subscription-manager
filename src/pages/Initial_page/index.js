@@ -20,7 +20,7 @@ function Initialpage() {
         <br></br>
         <br></br>
         <br></br>
-        <div clasName='row center' >
+        <div className='row center' >
           <h5 className='header col s12 light'>Cansado de não ter onde assistir seus filmes e séries favoritas? Cadastre-se agora !</h5>
         </div>
         <br></br>

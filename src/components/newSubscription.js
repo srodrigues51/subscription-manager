@@ -1,20 +1,28 @@
 import axios from "axios";
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import M from "materialize-css";
 
 const NewSubscription = () => {
 
+    useEffect(() => {
+        M.AutoInit();
+    }, []);
     const [name, setName] = useState('');
     const [slots, setSlots] = useState(0);
     const [periodicity, setPeriodicity] = useState('');
     const [value, setValue] = useState(0);
     const [dueDate, setDueDate] = useState('');
+    const [credentialType, setCredentialType] = useState('');
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSUB= async () => {
-      axios.post('http://localhost:8080/subscription', { name, slots, periodicity, value, dueDate, user, password })
-        .then(res => console.log(res.data)).catch(error => console.error(error));
+    const handleSUB = async () => {
+        var payload = { name, slots, periodicity, value, dueDate, credentialType };
+
+        if (credentialType === "USER_AND_PASSWORD") {
+            payload = { ...payload, subscriptionCredentials: { user, password } };
+        }
+        axios.post('http://localhost:8080/subscription', payload).then(res => console.log(res.data)).catch(error => console.error(error));
     }
 
     return (
@@ -30,7 +38,7 @@ const NewSubscription = () => {
                     </div>
                     <div className="input-field col s5">
                         <i className="material-icons prefix">group_add</i>
-                        <input id="members" name="members" type="number" value={slots} onChange={(e) => setSlots(e.target.value)}/>
+                        <input id="members" name="members" type="number" value={slots} onChange={(e) => setSlots(e.target.value)} />
                         <label htmlFor="members">Quantidade de Membros: </label>
                     </div>
                 </div>
@@ -56,17 +64,27 @@ const NewSubscription = () => {
                         <label htmlFor="date_picker" >Data Validade:</label>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="input-field col s6">
-                        <i className="material-icons prefix">email</i>
-                        <input id="email" type="email" name="email" value={user} onChange={(e) => setUser(e.target.value)} />
-                        <label htmlFor="email">Email: </label>
-                    </div>
-                    <div className="input-field col s6">
-                        <i className="material-icons prefix">enhanced_encryption</i>
-                        <input id="passwords" name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <label htmlFor="passwords">Senha: </label>
-                    </div>
+                <div className="input-field col s6">
+                    <select id="credentialType" name="credentialType" value={credentialType} onChange={(e) => setCredentialType(e.target.value)}>
+                        <option value="" disabled selected></option>
+                        <option value="INVITE">CONVITE</option>
+                        <option value="USER_AND_PASSWORD">CREDENCIAIS</option>
+                    </select>
+                    <label htmlFor="credentialType">Tipo de Credencial:</label>
+                    {credentialType === "USER_AND_PASSWORD" ?
+                        <div className="row">
+                            <div className="input-field col s6">
+                                <i className="material-icons prefix">email</i>
+                                <input id="email" type="email" name="email" value={user} onChange={(e) => setUser(e.target.value)} />
+                                <label htmlFor="email">Email: </label>
+                            </div>
+                            <div className="input-field col s6">
+                                <i className="material-icons prefix">enhanced_encryption</i>
+                                <input id="passwords" name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                <label htmlFor="passwords">Senha: </label>
+                            </div>
+                        </div> : <div></div>
+                    }
                 </div>
                 <br></br>
                 <br></br>

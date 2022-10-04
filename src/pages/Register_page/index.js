@@ -37,7 +37,7 @@ function Register() {
       <div className="container">
         <form>
           <label>Seu e-mail</label>
-          <input type="text" id="remail" name="remail" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+          <input type="email" id="remail" name="remail" value={email} onChange={(e) => setEmail(e.target.value)}></input>
           <label>Informe seu nome</label>
           <input type="text" id="rfname" name="rfname" value={firstName} onChange={(e) => setfName(e.target.value)}></input>
           <label>Agora seu sobrenome</label>

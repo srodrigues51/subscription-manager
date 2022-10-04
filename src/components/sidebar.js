@@ -15,7 +15,7 @@ function Sidebar() {
             <li className="divider" tabIndex="-1"></li>
             <li><Link className="sidenav-close" to="/payments">Pagamentos</Link></li>
             <li className="divider" tabIndex="-1"></li>
-            <li><Link className="sidenav-close" to="/notification">Notificações</Link></li>
+            <li><Link className="sidenav-close" to="/invites">Convites</Link></li>
             <li className="divider" tabIndex="-1"></li>
             <li><Link className="sidenav-close" to="/profile">Perfil</Link></li>
             <li className="divider" tabIndex="-1"></li>

@@ -15,6 +15,7 @@ const OnwSubscription = () => {
         'Authorization': `Bearer ${token}`
     }
     useEffect(() => {
+
         axios.get('http://localhost:8080/subscription', headers)
             .then(res => setSubscriptions(res.data))
             .catch(error => console.error(error));

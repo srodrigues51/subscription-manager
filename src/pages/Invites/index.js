@@ -1,20 +1,45 @@
-import React from "react";
-import axios from "axios";
+import React, { useEffect, useState, useContext } from "react";
 import Sidebar from "../../components/sidebar";
 import Navbar from '../../components/navbar';
-import NewInvite from '../../components/newInvite'
+import M from "materialize-css";
+import axios from "axios";
+import { AuthContext } from '../../contexts';
 
+function Invites() {
 
-function Notifications() {
+  const { token, setToken } = useContext(AuthContext);
+  const [invites, setSent] = useState({});
+  const [recive, setRecive] = useState({});
 
-  const handleReceived = async () => {
-    axios.get('http://localhost:8080/invite/received')
-      .then(res => console.log(res.data)).catch(error => console.error(error));
-  }
-  const handleSend = async () => {
-    axios.get('http://localhost:8080/invite/sent')
-      .then(res => console.log(res.data)).catch(error => console.error(error));
-  }
+  useEffect(() => {
+    const headers = {
+      'Authorization': `Bearer ${token}`
+    }
+    axios.get('http://localhost:8080/invite/sent', { headers })
+      .then(res => setSent(res.data))
+      .catch(error => console.error(error))
+  }, []);
+
+  useEffect(() => {
+    const headers = {
+      'Authorization': `Bearer ${token}`
+    }
+
+    axios.get('http://localhost:8080/invite/received', { headers })
+      .then(res => setRecive(res.data))
+      .catch(error => console.error(error))
+  }, []);
+
+  useEffect(() => {
+    const headers = {
+      'Authorization': `Bearer ${token}`
+    }
+
+    axios.post('http://localhost:8080/invite/received', { headers })
+      .then(res => setRecive(res.data))
+      .catch(error => console.error(error))
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -27,16 +52,46 @@ function Notifications() {
       <div className="container row">
         <div className="col s12">
           <ul className="tabs">
-            <li className="tab col s3"><button className="btn-large" onClick={handleReceived}>Recebidas</button></li>
-            <li className="tab col s3"><button className="btn-large" onClick={handleSend}>Enviadas</button></li>
+            <li className="tab col s3"><a href="#invites" className="black-text">Recebidos</a></li>
+            <li className="tab col s3"><a href="#recive" className="black-text">Enviados</a></li>
           </ul>
-        </div>
-        <div className='container'>
-          <button data-target="new_invite" className="btn-large modal-trigger ">CONVIDAR MEMBRO</button>
-        </div>
-        <div id="new_invite" className="modal modal-fixed-footer">
-          <div className="modal-content">
-            <NewInvite />
+
+          <div id="invites" className="col s12">
+            <br></br>
+            <br></br>
+            <span>Assinatura: </span>
+            <span>{invites.name}</span>
+            <br></br>
+            <br></br>
+            <span>Nome: </span>
+            <span>{invites.firstName}</span>
+            <br></br>
+            <br></br>
+            <span>Periodicidade: </span>
+            <span>{invites.periodicity}</span>
+            <br></br>
+            <br></br>
+            <span>Valor: </span>
+            <span>{invites.value}</span>
+          </div>
+
+          <div id="recive" className="col s12">
+            <br></br>
+            <br></br>
+            <span>Assinatura: </span>
+            <span>{recive.name}</span>
+            <br></br>
+            <br></br>
+            <span>Nome: </span>
+            <span>{recive.firstName}</span>
+            <br></br>
+            <br></br>
+            <span>Periodicidade: </span>
+            <span>{recive.periodicity}</span>
+            <br></br>
+            <br></br>
+            <span>Valor: </span>
+            <span>{recive.value}</span>
           </div>
         </div>
       </div>
@@ -44,4 +99,4 @@ function Notifications() {
   );
 }
 
-export default Notifications;
+export default Invites;

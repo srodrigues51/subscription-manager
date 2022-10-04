@@ -2,18 +2,12 @@ import React from "react";
 import Sidebar from "../../components/sidebar";
 import Navbar from '../../components/navbar';
 import NewSubscription from "../../components/newSubscription";
-import axios from "axios";
+import Subscribed from "../../components/subscribed";
+import OnwSubs from "../../components/ownsubs"
 
 function Subscriptions() {
 
-  const handleMysubs = async () => {
-    axios.get('http://localhost:8080/subscription/:id')
-      .then(res => console.log(res.data)).catch(error => console.error(error));
-  }
-  const handleShare= async () => {
-    axios.get('http://localhost:8080/subscription/subscribed')
-      .then(res => console.log(res.data)).catch(error => console.error(error));
-  }
+
   return (
     <>
       <Navbar />
@@ -26,15 +20,16 @@ function Subscriptions() {
       <div className="container row">
         <div className="col s12">
           <ul className="tabs">
-            <li className="tab col s3"><button href="#share" className="btn-large" onClick={handleShare}>Assinaturas</button></li>
-            <li className="tab col s3"><button href="#own" className="btn-large" onClick={handleMysubs}>Minhas Assinaturas</button></li>
+            <li className="tab col s3"><a href="#share" className="black-text" >Assinaturas</a></li>
+            <li className="tab col s3"><a href="#own" className="black-text" >Minhas Assinaturas</a></li>
           </ul>
         </div>
         <div id="own" className="col s12"> 
+          <OnwSubs/>
           <br></br>
           <br></br>
           <div className='container center'>
-            <button data-target="new_service" className="btn-large modal-trigger ">ADICIONAR NOVO SERVIÇO</button>
+            <a href="#new_service" className="btn-large modal-trigger ">ADICIONAR NOVO SERVIÇO</a>
           </div>
           <div id="new_service" className="modal modal-fixed-footer">
             <div className="modal-content">
@@ -43,7 +38,9 @@ function Subscriptions() {
           </div>
         </div>
         <div id="share" className="col s12"> 
-          
+          <Subscribed/>
+          <br></br>
+          <br></br>
         </div>
       </div>
     </>

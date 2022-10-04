@@ -33,7 +33,7 @@ function Profile() {
                     <li class="collection-header"><h3>Perfil</h3></li>
                     <li class="collection-item">
                         <h5>Nome:</h5>
-                        <p>{profile.fullName}</p>
+                        <p>{profile.firstName}</p>
                     </li>
                     <li class="collection-item">
                         <h5>E-mail:</h5>
