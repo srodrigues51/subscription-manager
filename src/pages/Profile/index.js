@@ -29,13 +29,13 @@ function Profile() {
             <br></br>
             <br></br>
             <div className='container row'>
-                <ul class="collection with-header">
-                    <li class="collection-header"><h3>Perfil</h3></li>
-                    <li class="collection-item">
+                <ul className="collection with-header">
+                    <li className="collection-header"><h3>Perfil</h3></li>
+                    <li className="collection-item">
                         <h5>Nome:</h5>
-                        <p>{profile.firstName}</p>
+                        <p>{profile.fullName}</p>
                     </li>
-                    <li class="collection-item">
+                    <li className="collection-item">
                         <h5>E-mail:</h5>
                         <p>{profile.email}</p>
                     </li>
