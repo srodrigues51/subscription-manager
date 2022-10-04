@@ -9,10 +9,7 @@ import Subscription from './pages/Subscriptions';
 import Profile from './pages/Profile';
 import Notifications from './pages/Notifications';
 
-
-
 function AppRoutes() {
-
 
     return (
         <Router>
