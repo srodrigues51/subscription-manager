@@ -10,6 +10,13 @@ function Payments() {
   const { token, setToken } = useContext(AuthContext);
   const [payments, setRecieve] = useState({});
   const [toPay, setProfile] = useState({});
+  const [status, setStatus] = useState({});
+
+  const handlePayment= async () => {
+    axios.put('http://localhost:8080/payment', {paymentId: payments.id, status})
+    .then(res => {setStatus(res.data.jwtToken);
+    }).catch(error => console.error(error));
+  };
 
   useEffect(() => {
     M.AutoInit();
@@ -18,13 +25,15 @@ function Payments() {
         'Authorization': `Bearer ${token}`
     }
 
-    axios.get('http://localhost:8080/user', { headers })
+    axios.get('http://localhost:8080/payment/receive', { headers })
         .then(res => setRecieve(res.data))
-        .catch(error => console.error(error))
+        .catch(error => console.error(error));
 
+    axios.get('http://localhost:8080/payment', { headers })
         .then(res => setProfile(res.data))
         .catch(error => console.error(error));
 }, []);
+
 
   return (
     <>
@@ -59,6 +68,12 @@ function Payments() {
             <br></br>
             <span>Valor: </span>
             <span>{payments.value}</span>
+            <br></br>
+            <br></br>
+            <span>Confirme que voce recebeu o pagamento</span>
+            <br></br>
+            <br></br>
+            <button className="waves-effect waves-light btn center" onClick={handlePayment}> confirmar pagamento </button>
           </div>
 
           <div id="payd" class="col s12">
