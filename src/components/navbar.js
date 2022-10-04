@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import M from "materialize-css";
+import { AuthContext } from '../contexts/authContext';
 
 function Navbar() {
 
-  /*const logout = asyn =>{
-    setToken(null)
-    Navigate('/login');
-  }*/
+  const { token, setToken } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setToken('');
+    navigate('/login');
+  }
 
   useEffect(() => {
     M.AutoInit();
@@ -24,7 +28,7 @@ function Navbar() {
               <ul id='dropdown1' className='dropdown-content container'>
                 <li><Link to='/profile'>Perfil</Link></li>
                 <li className="divider" tabIndex="-1"></li>
-                <li><button className='center btn-small'>Sair</button></li>
+                <li><a onClick={handleLogout}>Sair</a></li>
               </ul>
             </ul>
           </div>
