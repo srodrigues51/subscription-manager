@@ -45,7 +45,7 @@ const NewSubscription = () => {
                 <div className="row">
                     <div className="input-field col s6">
                         <select id="periodicity" name="periodicity" value={periodicity} onChange={(e) => setPeriodicity(e.target.value)}>
-                            <option value="" disabled selected></option>
+                            <option value="" disabled></option>
                             <option value="1">Mensal</option>
                             <option value="2">Anual</option>
                         </select>
@@ -66,7 +66,7 @@ const NewSubscription = () => {
                 </div>
                 <div className="input-field col s6">
                     <select id="credentialType" name="credentialType" value={credentialType} onChange={(e) => setCredentialType(e.target.value)}>
-                        <option value="" disabled selected></option>
+                        <option value="" disabled></option>
                         <option value="INVITE">CONVITE</option>
                         <option value="USER_AND_PASSWORD">CREDENCIAIS</option>
                     </select>

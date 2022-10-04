@@ -35,7 +35,7 @@ const Subscribed = () => {
                 <tbody>
                 {
                         subscribed.map(sub => (
-                            <tr>
+                            <tr key={sub.id}>
                                 <td>{sub.name}</td>
                                 <td>{sub.dueDate}</td>
                                 <td>{sub.value}</td>
