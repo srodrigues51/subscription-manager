@@ -20,7 +20,6 @@ function Login() {
   }
 
   useEffect(() => {
-    // TODO validate token
     if (token) {
       navigate("/home")
     }
