@@ -21,7 +21,7 @@ function Navbar() {
         <div className='nav-bar-fixed blue autoclose'>
         <nav>
           <div className='nav-wrapper blue autoclose'>
-            <a id="brand-logo" href=" " className='brand-logo center'> Subscription Manager</a>
+            <span id="brand-logo" className='brand-logo center'> Subscription Manager</span>
             <a href="#!" className='sidenav-trigger show-on-large' data-target='sidebar'><i className='medium material-icons white-text'>menu</i></a>
             <ul id="navbar-items" className="right hide-on-med-and-down">
               <li><a href='#!' className='dropdown-trigger' data-target='dropdown1'><i className="large material-icons ">account_circle</i></a></li>
