@@ -28,7 +28,7 @@ function Home() {
       <br></br>
       <br></br>
       <div className='center'>
-        <button className="waves-effect waves-light btn-large "> <Link to='/users' className='white-text'>Consultar Membros</Link></button>
+        <button className="waves-effect waves-light btn-large "> <Link to='/notification' className='white-text'>Consultar Notificações</Link></button>
       </div>
     </>
 

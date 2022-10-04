@@ -17,8 +17,8 @@ function Navbar() {
               <li><a href='#!' className='dropdown-trigger' data-target='dropdown1'><i className="large material-icons ">account_circle</i></a></li>
               <ul id='dropdown1' className='dropdown-content container'>
                 <li><Link to='/profile'>Perfil</Link></li>
-                <li className="divider" tabindex="-1"></li>
-                <li><button>Sair</button></li>
+                <li className="divider" tabIndex="-1"></li>
+                <li><button className=' center btn-small'>Sair</button></li>
               </ul>
             </ul>
           </div>

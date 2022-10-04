@@ -26,7 +26,7 @@ function Subscriptions() {
       <div className="container row">
         <div className="col s12">
           <ul className="tabs">
-            <li className="tab col s3"><button href="#own" className="btn-large" onClick={handleShare}>Assinaturas</button></li>
+            <li className="tab col s3"><button href="#share" className="btn-large" onClick={handleShare}>Assinaturas</button></li>
             <li className="tab col s3"><button href="#own" className="btn-large" onClick={handleMysubs}>Minhas Assinaturas</button></li>
           </ul>
         </div>
@@ -41,6 +41,9 @@ function Subscriptions() {
               <NewSubscription />
             </div>
           </div>
+        </div>
+        <div id="share" className="col s12"> 
+          
         </div>
       </div>
     </>
