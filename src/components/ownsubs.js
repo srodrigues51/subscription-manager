@@ -6,17 +6,17 @@ import { AuthContext } from "../contexts/authContext";
 
 const OnwSubscription = () => {
 
-    useEffect(() => {
-        M.AutoInit();
-    }, []);
     const { token, setToken } = useContext(AuthContext);
     const [subscriptions, setSubscriptions] = useState([])
-    const headers = {
-        'Authorization': `Bearer ${token}`
-    }
-    useEffect(() => {
 
-        axios.get('http://localhost:8080/subscription', headers)
+    useEffect(() => {
+        M.AutoInit();
+
+        const headers = {
+            'Authorization': `Bearer ${token}`
+        }
+
+        axios.get('http://localhost:8080/subscription', { headers })
             .then(res => setSubscriptions(res.data))
             .catch(error => console.error(error));
     }, []);
