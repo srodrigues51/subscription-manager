@@ -49,7 +49,7 @@ function Login() {
           <label>Informe sua senha</label>
           <input type="password" id="lpassword" name="lpassword" value={password} onChange={(e) => setPassword(e.target.value)} />
         </form>
-        <button className="waves-effect waves-light btn" onClick={handleLogin}> Login </button>
+        <button className="waves-effect waves-light btn center" onClick={handleLogin}> Login </button>
       </div>
     </div>
 

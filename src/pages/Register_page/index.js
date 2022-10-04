@@ -45,7 +45,7 @@ function Register() {
           <label>Crie uma senha</label>
           <input type="password" id="cpassword" name="cpassword" value={password} onChange={(e) => setPassword(e.target.value)}></input>
         </form>
-        <button className="waves-effect waves-light btn" onClick={handleRegister}><Link to="/login" className='white-text'>Cadastrar</Link></button>
+        <button className="waves-effect waves-light btn register" onClick={handleRegister}><Link to="/login" className='white-text'>Cadastrar</Link></button>
       </div>
     </div>
 
