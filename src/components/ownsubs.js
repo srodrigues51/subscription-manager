@@ -7,7 +7,7 @@ import { AuthContext } from "../contexts/authContext";
 const OnwSubscription = () => {
 
     const { token, setToken } = useContext(AuthContext);
-    const [subscriptions, setSubscriptions] = useState([])
+    const [subscriptions, setSubscriptions] = useState([]);
 
     useEffect(() => {
         M.AutoInit();

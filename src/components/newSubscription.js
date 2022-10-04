@@ -1,12 +1,12 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import M from "materialize-css";
+import { AuthContext } from "../contexts/authContext";
+import { useNavigate } from "react-router-dom";
 
 const NewSubscription = () => {
 
-    useEffect(() => {
-        M.AutoInit();
-    }, []);
+    const { token } = useContext(AuthContext);
     const [name, setName] = useState('');
     const [slots, setSlots] = useState(0);
     const [periodicity, setPeriodicity] = useState('');
@@ -15,15 +15,38 @@ const NewSubscription = () => {
     const [credentialType, setCredentialType] = useState('');
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
-    const handleSUB = async () => {
+    const handleSUB = async (event) => {
+        event.preventDefault();
+
+        const headers = {
+            'Authorization': `Bearer ${token}`
+        }
+
         var payload = { name, slots, periodicity, value, dueDate, credentialType };
 
         if (credentialType === "USER_AND_PASSWORD") {
             payload = { ...payload, subscriptionCredentials: { user, password } };
         }
-        axios.post('http://localhost:8080/subscription', payload).then(res => console.log(res.data)).catch(error => console.error(error));
+
+        await axios.post('http://localhost:8080/subscription', payload, { headers })
+            .then(res => console.log(res.data))
+            .catch(error => console.error(error));
+
+        setName('');
+        setSlots(0);
+        setPeriodicity('');
+        setValue(0);
+        setDueDate('');
+        setCredentialType('');
+        setUser('');
+        setPassword('');
     }
+
+    useEffect(() => {
+        M.AutoInit();
+    }, []);
 
     return (
         <div>
@@ -92,11 +115,12 @@ const NewSubscription = () => {
                 <br></br>
                 <div className='modal-fixed-footer center'>
                     <button className="modal-close btn waves-effect waves-flat">Voltar</button>
-                    <button className="btn waves-effect waves-flat" onClick={handleSUB} >Cadastrar</button>
+                    <button className="modal-close btn waves-effect waves-flat" onClick={handleSUB}>Cadastrar</button>
                 </div>
             </form>
         </div>
     )
 
 }
+
 export default NewSubscription;
